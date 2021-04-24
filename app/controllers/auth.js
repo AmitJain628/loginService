@@ -55,7 +55,7 @@ const signin = async (req, res) => {
       },
       config.secret,
       {
-        expiresIn: 10,
+        expiresIn: 300,
       }
     );
 
@@ -129,7 +129,7 @@ const getRefreshToken = async (req, res) => {
       },
       config.secret,
       {
-        expiresIn: 10,
+        expiresIn: 300,
       }
     );
     res
