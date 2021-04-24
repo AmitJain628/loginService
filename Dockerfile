@@ -8,6 +8,8 @@ RUN npm install -g nodemon && npm install
 
 COPY . .
 
+RUN npm run build
+
 EXPOSE 8080
 
 CMD ["node", "./dist-server/server.js"]
