@@ -1,4 +1,4 @@
-# Development
+# From NPM
 ```
 npm run watch:dev
 ```
