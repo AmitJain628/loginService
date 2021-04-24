@@ -24,7 +24,7 @@ const verifyToken = async (req, res, next) => {
         } else {
           id = decoded.id;
           const accessToken = jwt.sign({ id }, config.secret, {
-            expiresIn: 10,
+            expiresIn: 300,
           });
 
           const refreshToken = jwt.sign({ id }, config.secret, {
