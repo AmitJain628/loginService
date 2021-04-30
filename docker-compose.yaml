@@ -1,32 +1,10 @@
-version: '3.3'
+version: '3.7'
 
 services: 
-  mysqldb:
-    image: mysql
-    restart: always
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_PASS: Jainamit6@    
-      MYSQL_DB: resync
-      MYSQL_USER: root
-    ports:
-      - "3306"
-    expose:
-      - "3306"
-    volumes: 
-      - db-config:/etc/mysql
-      - db-data:/var/lib/mysql
-      - ./db/backup/files/:/data_backup/data
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: resync-assignment
+    build: .
+    container_name: resync-assignment
     environment:
-      MYSQL_PASS: Jainamit6@    
-      MYSQL_DB: resync
-      MYSQL_USER: root
-      MYSQL_HOST: mysqldb
       PORT: 8080
     ports:
       - 8080:8080
@@ -38,6 +16,13 @@ services:
     stdin_open: true
     tty: true
 
-volumes: 
-  db-config:
-  db-data:
+  mysqldb:
+    image: mysql:8.0.2
+    container_name: mysql-container
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_DATABASE: resync
+      MYSQL_ROOT_PASSWORD: jainamit6@    
+    ports:
+        - "3306"
