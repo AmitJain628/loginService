@@ -1,8 +1,13 @@
-# From Docker
+# Docker
 ```
 docker-compose up
 
+Rebuild application with docker:
+
+docker-compose up --build
 ```
+
+
 
 # From NPM
 ```
