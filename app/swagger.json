@@ -1,0 +1,222 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Login Service Application API"
+    },
+    "host": "localhost:8080",
+    "basePath": "/api",
+    "tags": [
+      {
+        "name": "Login API",
+        "description": "API for users in the system"
+      },
+      {
+        "name": "Country API",
+        "description": "API for countries details in the system"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/auth/signup": {
+        "post": {
+          "tags": [
+            "Login API"
+          ],
+          "description": "Create new user in system",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "User that we want to create",
+              "schema": {
+                "$ref": "#/definitions/SignUp"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New user is created",
+              "schema": {
+                "$ref": "#/definitions/SignUp"
+              }
+            }
+          }
+        }
+      },
+      "auth/signin": {
+        "post": {
+            "tags": [
+              "Login API"
+            ],
+            "description": "API to sigin in the system",
+            "parameters": [
+              {
+                "name": "user",
+                "in": "body",
+                "description": "User that we login in the system",
+                "schema": {
+                  "$ref": "#/definitions/SignIn"
+                }
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "200": {
+                "description": "New user is created",
+                "schema": {
+                  "$ref": "#/definitions/SignIn"
+                }
+              }
+            }
+          }
+      },
+      "/country": {
+        "post": {
+            "tags": [
+              "Country API"
+            ],
+            "description": "Create new country in system",
+            "parameters": [
+              {
+                "name": "country",
+                "in": "body",
+                "description": "API to add new country",
+                "schema": {
+                  "$ref": "#/definitions/Country"
+                }
+              }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "200": {
+                "description": "New country added in the system",
+                "schema": {
+                  "$ref": "#/definitions/Country"
+                }
+              }
+            }
+          },
+          "get": {
+            "tags": [
+                "Country API"
+              ],
+            "description": "To get a country",
+            "parameters": [
+                {
+                  "name": "countryName",
+                  "in": "path",
+                  "description": "API to get country offset",
+                  "schema": {
+                    "$ref": "#/definitions/Country"
+                  }
+                }
+              ],
+              "produces": [
+                "application/json"
+              ],
+              "responses": {
+                "200": {
+                  "description": "Get country offset",
+                  "schema": {
+                    "$ref": "#/definitions/Country"
+                  }
+                }
+              }   
+          }
+      },
+      "/allCountry": {
+          "get": {
+            "tags": [
+                "Country API"
+              ],
+            "description": "To get a country",
+              "produces": [
+                "application/json"
+              ],
+              "responses": {
+                "200": {
+                  "description": "Get all countries offset",
+                  "schema": {
+                    "$ref": "#/definitions/Countries"
+                  }
+                }
+              }   
+          }   
+          }
+    },
+    "definitions": {
+      "SignUp": {
+        "required": [
+          "username",
+          "email",
+          "password"
+        ],
+        "properties": {
+          "username": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "email": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "password": {
+            "type": "string",
+            "uniqueItems": true
+          }
+        }
+      },
+      "SignIn": {
+        "required": [
+          "username",
+          "password"
+        ],
+        "properties": {
+          "username": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "password": {
+            "type": "string",
+            "uniqueItems": true
+          }
+        }
+      },
+      "Country": {
+        "required": [
+          "countryName",
+          "gmtOffset"
+        ],
+        "properties": {
+          "countryName": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "gmtOffset": {
+            "type": "string",
+            "uniqueItems": true
+          }
+        }
+      },
+      "Countries": {
+        "type": "array",
+        "$ref": "#/definitions/Country"
+      }
+    }
+  }

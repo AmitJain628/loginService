@@ -1,7 +1,20 @@
 import express from "express";
 import bodyParser from "body-parser";
-var cookieParser = require('cookie-parser');
+import cookieParser from 'cookie-parser';
 import cors from "cors";
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: "API Documentation",
+      version: '1.0.0',
+    },
+  },
+  apis: ["server.js"],
+};
+
 
 require('dotenv').config();
 
@@ -25,6 +38,8 @@ db.sequelize.sync().then(() => {
 app.get("/health", (req, res) => {
   res.sendStatus(200);
 });
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // routes
 require('./routes/auth')(app);

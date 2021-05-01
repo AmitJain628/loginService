@@ -36,7 +36,8 @@
       ]
     ],
     "plugins": [
-      "@babel/plugin-transform-async-to-generator"
+      "@babel/plugin-transform-async-to-generator",
+      ["inline-json-import", {}]
     ]
   },
   "dependencies": {
@@ -50,15 +51,19 @@
     "dotenv": "^8.2.0",
     "eslint": "^7.24.0",
     "express": "^4.17.1",
+    "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.7",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
-    "sequelize": "^5.21.3"
+    "sequelize": "^5.21.3",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "@babel/plugin-transform-async-to-generator": "^7.13.0",
+    "babel-plugin-inline-json-import": "^0.3.2",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^3.4.0",
     "prettier": "^2.2.1"
