@@ -12,3 +12,9 @@ npm run watch:dev
 ```
 docker-compose up
 ```
+
+#API documentation
+
+```
+http://localhost:8080/api-docs
+```
