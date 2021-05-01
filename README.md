@@ -7,11 +7,11 @@ docker-compose up
 # From NPM
 ```
 Install dependencies
-npm install
+## npm install
 
 If MySQL already installed in the local machine. Update the configuration in the /loginService/app/config/db.js file
 
-npm run watch:dev
+## npm run watch:dev
 
 ```
 
