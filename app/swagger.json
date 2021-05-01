@@ -47,10 +47,7 @@
           ],
           "responses": {
             "200": {
-              "description": "New user is created",
-              "schema": {
-                "$ref": "#/definitions/SignUp"
-              }
+              "description": "User registered successfully!"
             }
           }
         }
