@@ -1,10 +1,14 @@
 # From NPM
 ```
+Install dependencies
+npm install
+
+If MySQL already installed in local machine.
+add .env file in the root director and update env variables 
 npm run watch:dev
 ```
 
 # From Docker
 ```
-Image build: docker build . -t resync-assignment
 docker-compose up
 ```
