@@ -5,6 +5,9 @@ docker-compose up
 Rebuild application with docker:
 
 docker-compose up --build
+
+Note: If you face any db issues like connection failure or password incorrect. Please try removing docker volumes file.
+Reference: https://github.com/docker-library/mysql/issues/51
 ```
 
 
